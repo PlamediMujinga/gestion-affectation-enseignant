@@ -12,7 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('roles', function (Blueprint $table) {
+
             $table->id();
+            //Le nom du Rôle parmi [PROVED, SOUS PROVED, ECOLE, ENSEIGNANT, ADMIN, MINISTERE]
+            $table->string('nom')->unique();
+            
+            //Description du role
+            $table->string('description')->nullable();
+            
             $table->timestamps();
         });
     }

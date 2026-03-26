@@ -12,7 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sous_proveds', function (Blueprint $table) {
+
             $table->id();
+            //Sous Proved comme autorité divisionnaire du minstere sous l'autorité du proved (pas une personne)
+
+            //Nom - ex: 
+            $table->string('nom');
+
+            $table->string('code')->unique();
+
+            $table->foreignId('proveds_id')->constrained()->cascadeOnDelete();
+
+            $table->string('adresse')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('email')->nullable();
+            
             $table->timestamps();
         });
     }
