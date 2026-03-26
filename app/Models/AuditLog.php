@@ -9,4 +9,9 @@ class AuditLog extends Model
 {
     /** @use HasFactory<\Database\Factories\AuditLogFactory> */
     use HasFactory;
+
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
