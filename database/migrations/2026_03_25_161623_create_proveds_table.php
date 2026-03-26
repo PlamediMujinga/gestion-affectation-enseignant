@@ -12,7 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('proveds', function (Blueprint $table) {
+
             $table->id();
+            //Proved comme autorité provinciale du minstere (pas une personne)
+
+            //Nom - ex: Lukunga
+            $table->string('nom');
+            
+            //Code - ex:005
+            $table->string('code')->unique();
+
+            $table->foreignId('province_id')->constrained()->cascadeOnDelete();
+
+            $table->string('adresse')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('email')->nullable();
+            
             $table->timestamps();
         });
     }

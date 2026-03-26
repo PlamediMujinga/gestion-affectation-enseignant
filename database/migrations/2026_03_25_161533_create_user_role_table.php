@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_role', function (Blueprint $table) {
+            
             $table->id();
-            $table->timestamps();
+            
+            //Un user peut avoir plusieurs roles (à revoir)
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('role_id')->constrained()->cascadeOnDelete();
+
+            $table->unique(['user_id', 'role_id']);
         });
     }
 

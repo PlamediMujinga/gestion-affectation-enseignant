@@ -11,8 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('enseignants', function (Blueprint $table) {
+        Schema::create('commissions', function (Blueprint $table) {
+
             $table->id();
+            
+            $table->foreignId('affectation_id')->constrained()->cascadeOnDelete();
+
+            $table->string('numero');// ex: COM-2026-001
+            $table->date('date_signature');
+
+            $table->string('fichier')->nullable();//Chemin PDF
+            
             $table->timestamps();
         });
     }
@@ -22,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('enseignants');
+        Schema::dropIfExists('commissions');
     }
 };

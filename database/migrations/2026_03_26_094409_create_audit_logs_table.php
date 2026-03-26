@@ -12,7 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('audit_logs', function (Blueprint $table) {
+
             $table->id();
+
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+
+            $table->string('action');//Login_success or failed, register_success or failed ...
+
+            $table->text('description')->nullable();
+
+            $table->string('ip_address')->nullable();
+            $table->string('user_agent')->nullable();
+            
             $table->timestamps();
         });
     }
