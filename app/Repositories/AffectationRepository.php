@@ -14,7 +14,7 @@ class AffectationRepository implements AffectationRepositoryInterface
 
     public function getAll()
     {
-        return Affectation::latest()->get();
+        return Affectation::with(['enseignant','ecole'])->get();
     }
 
     public function getByEnseignant($enseignantId)
