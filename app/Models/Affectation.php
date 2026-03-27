@@ -18,12 +18,12 @@ class Affectation extends Model
         'commentaire'
     ];
 
-    public function enseignants()
+    public function enseignant()
     {
         return $this->belongsTo(Enseignant::class);
     }
 
-    public function ecoles()
+    public function ecole()
     {
         return $this->belongsTo(Ecole::class);
     }

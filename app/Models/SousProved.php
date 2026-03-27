@@ -14,7 +14,7 @@ class SousProved extends Model
         'user_id',
         'nom',
         'code',
-        'proved_id',
+        'proveds_id',
         'adresse',
         'telephone',
         'email'
