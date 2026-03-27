@@ -2,6 +2,28 @@
 
 use Illuminate\Support\Facades\Route;
 
+//Authentification
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+
+//Enseignant
+use App\Http\Controllers\Enseignant\DashboardController as EnseignantDahsboard;
+use App\Http\Controllers\Enseignant\DemandeController as EnseignantDemande;
+
+//Ecole
+use App\Http\Controllers\Ecole\DashboardController as EcoleDahsboard;
+use App\Http\Controllers\Ecole\DemandeController as EcoleDemande;
+
+//Sous Proved
+use App\Http\Controllers\SousProved\DashboardController as SousProvedDahsboard;
+use App\Http\Controllers\SousProved\AffectationController;
+use App\Http\Controllers\SousProved\DemandeController as SousProvedDemande;
+use App\Http\Controllers\SousProved\EcoleController as SousProvedEcole;
+
+//Sous Proved
+use App\Http\Controllers\Proved\DashboardController as ProvedDahsboard;
+
+
 //ROUTES PUBLIQUES
 
 //Connexion
@@ -56,10 +78,13 @@ Route::middleware(['auth'])->group(function ()
         ->group(function () {
             Route::get('/dashboard', [ProvedDashboard::class, 'index']);
 
+            /*** 
             Route::get('/ecoles', [ProvedEcole::class, 'index'])->middleware('permission:view_ecole');
 
             Route::get('/demandes', [ProvedDemande::class, 'index'])->middleware('permission:view_demande');
 
             Route::post('/affectations', [AffectionController::class, 'store'])->middleware('permission:affect_teacher');
+            */
+            
         });
 });
