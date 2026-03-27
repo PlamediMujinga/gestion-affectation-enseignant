@@ -21,8 +21,11 @@ class PermissionSeeder extends Seeder
             'reject_demande',
             'create_affectation',
             'view_affectation',
+            'create_ecole',
             'manage_ecoles',
+            'create_enseignant',
             'manage_enseignants',
+            'create_sous_proved',
             'manage_sous_proveds',
             'view_statistiques',
             'view_rapports'
