@@ -23,7 +23,9 @@ use App\Http\Controllers\SousProved\EcoleController as SousProvedEcole;
 //Sous Proved
 use App\Http\Controllers\Proved\DashboardController as ProvedDahsboard;
 
-
+Route::get('/', function () {
+    return view('welcome');
+});
 //ROUTES PUBLIQUES
 
 //Connexion
