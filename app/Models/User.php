@@ -50,4 +50,14 @@ class User extends Model
     {
         return $this->hasMany(Affectation::class, 'created_by');
     }
+
+    public function hasPermission($permissionName)
+    {
+        foreach ($this->roles as $role) {
+            if ($role->permission->contains('nom', $permissionName)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
