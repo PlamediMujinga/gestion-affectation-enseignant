@@ -51,8 +51,11 @@ class RolePermissionSeeder extends Seeder
             $allPermissions['validate_demande']->id,
             $allPermissions['reject_demande']->id,
             $allPermissions['create_affectation']->id,
+            $allPermissions['create_enseignant']->id,
             $allPermissions['manage_enseignants']->id,
+            $allPermissions['create_ecole']->id,
             $allPermissions['manage_ecoles']->id,
+            $allPermissions['create_sous_proved']->id,
             $allPermissions['manage_sous_proveds']->id,
             $allPermissions['view_statistiques']->id
         ]);
