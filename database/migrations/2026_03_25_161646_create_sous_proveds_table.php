@@ -16,12 +16,14 @@ return new class extends Migration
             $table->id();
             //Sous Proved comme autorité divisionnaire du minstere sous l'autorité du proved (pas une personne)
 
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+
             //Nom - ex: 
             $table->string('nom');
 
             $table->string('code')->unique();
 
-            $table->foreignId('proveds_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('proved_id')->constrained()->cascadeOnDelete();
 
             $table->string('adresse')->nullable();
             $table->string('telephone')->nullable();

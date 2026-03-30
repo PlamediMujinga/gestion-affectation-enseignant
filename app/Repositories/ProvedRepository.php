@@ -19,6 +19,6 @@ class ProvedRepository implements ProvedRepositoryInterface
 
     public function getSousProveds($provedId)
     {
-        return Proved::findOrFail($provedId)->sousProveds;
+        return Proved::findOrFail($provedId)->sousProved;
     }
 }

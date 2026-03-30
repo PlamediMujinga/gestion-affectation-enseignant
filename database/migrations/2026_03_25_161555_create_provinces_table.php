@@ -17,9 +17,6 @@ return new class extends Migration
 
             //Nom de la province - ex: Kinshahsa
             $table->string('nom');
-            
-            //Code de la province - ex: 001
-            $table->string('code')->unique();
 
             $table->timestamps();
         });

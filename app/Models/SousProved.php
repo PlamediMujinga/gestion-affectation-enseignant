@@ -20,22 +20,22 @@ class SousProved extends Model
         'email'
     ];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function proveds()
+    public function proved()
     {
         return $this->belongsTo(Proved::class);
     }
 
-    public function ecoles()
+    public function ecole()
     {
         return $this->hasMany(Ecoles::class);
     }
 
-    public function enseignants()
+    public function enseignant()
     {
         return $this->hasMany(Enseignant::class);
     }

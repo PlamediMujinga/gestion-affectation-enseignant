@@ -28,27 +28,27 @@ class Enseignant extends Model
         'ecole_id'
     ];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function ecoles()
+    public function ecole()
     {
         return $this->belongsTo(Ecole::class);
     }
 
-    public function affectations()
+    public function affectation()
     {
         return $this->hasMany(Affectation::class);
     }
 
-    public function demandes()
+    public function demande()
     {
         return $this->morphMany(Demande::class, 'emetteur');
     }
 
-    public function provinces()
+    public function province()
     {
         return $this->belongsTo(Province::class);
     }

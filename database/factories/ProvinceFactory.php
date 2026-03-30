@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Province;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,8 @@ class ProvinceFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            //Pour injection des fausses provinces dans la base de données
+            'nom' => $this->faker->randomElement(['Kinshasa','Kongo Central']),
         ];
     }
 }

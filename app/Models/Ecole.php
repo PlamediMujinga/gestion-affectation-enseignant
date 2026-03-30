@@ -19,19 +19,18 @@ class Ecole extends Model
         'adresse',
         'telephone',
         'email',
-        'province_id',
         'sous_proved_id',
         'capacite',
         'nombre_eleves',
         'directeur_id'
     ];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTO(User::class);
     }
 
-    public function enseignants()
+    public function enseignant()
     {
         return $this->hasMany(Enseignant::class);
     }
@@ -41,22 +40,17 @@ class Ecole extends Model
         return $this->belongsTo(Enseignant::class);
     }
 
-    public function sousProveds()
+    public function sousProved()
     {
         return $this->belongsTo(SousProved::class);
-    }
-
-    public function provinces()
-    {
-        return $this->belongsTo(Province::class);
     } 
 
-    public function demandes()
+    public function demande()
     {
         return $this->morphMany(Demande::class, 'emetteur');
     }
 
-    public function affectations()
+    public function affectation()
     {
         return $this->hasMany(Affectation::class);
     }

@@ -12,6 +12,7 @@ use App\Contracts\UserRepositoryInterface;
 use App\Contracts\ProvedRepositoryInterface;
 use App\Contracts\SousProvedRepositoryInterface;
 use App\Contracts\RoleRepositoryInterface;
+use App\Contracts\AuditRepositoryInterface;
 
 use App\Repositories\DemandeRepository;
 use App\Repositories\AffectationRepository;
@@ -21,6 +22,7 @@ use App\Repositories\UserRepository;
 use App\Repositories\ProvedRepository;
 use App\Repositories\SousProvedRepository;
 use App\Repositories\RoleRepository;
+use App\Repositories\AuditRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -38,6 +40,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ProvedRepositoryInterface::class, ProvedRepository::class);
         $this->app->bind(SousProvedRepositoryInterface::class, SousProvedRepository::class);
         $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
+        $this->app->bind(AuditRepositoryInterface::class, AuditRepository::class);
 
     }
 

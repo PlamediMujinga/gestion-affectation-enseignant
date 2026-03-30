@@ -31,7 +31,7 @@ class Demande extends Model
         return $this->belongsTo(User::class, 'traite_par');
     }
 
-    public function affectations()
+    public function affectation()
     {
         return $this->hasOne(Affectation::class);
     }

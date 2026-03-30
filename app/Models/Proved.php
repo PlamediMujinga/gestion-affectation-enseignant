@@ -20,17 +20,17 @@ class Proved extends Model
         'email'
     ];
 
-    public function users()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function provinces()
+    public function province()
     {
         return $this->belongsTo(Province::class);
     }
 
-    public function sousProveds()
+    public function sousProved()
     {
         return $this->hasMany(SousProved::class);
     }

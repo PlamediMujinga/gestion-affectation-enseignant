@@ -12,10 +12,9 @@ class RoleRepository implements RoleRepositoryInterface
         return Role::create($data);
     }
 
-    public function getRoleByName($roleName)
+    public function getRoleIdByName($roleName)
     {
-        $role = Role::where('nom', $roleName)->first(['id']);
-        return $role;   //return $role ? $role->id : null;
+        return Role::where('nom', $roleName)->value('id');
     }
 
 }

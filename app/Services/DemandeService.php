@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Demande;
 use App\Contracts\DemandeRepositoryInterface;
 
 class DemandeService
@@ -49,5 +50,21 @@ class DemandeService
     public function traiterDemande($id, $status)
     {
         return $this->demandeRepository->updateStatus($id, $status);
+    }
+
+    //Récupérer demandes en attente
+    public function getDemandeById($id, $type)
+    {
+        if($type === 'enseignant'){
+            return Demande::where('emetteur_id', $id)
+                            ->orderBy('created_at', 'desc')
+                            ->get();
+        }
+        if($type === 'ecole'){
+            return Demande::where('emetteur_id', $id)
+                            ->orderBy('created_at', 'desc')
+                            ->get();
+        }
+        
     }
 }

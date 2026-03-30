@@ -26,7 +26,7 @@ class UserService
             'password' => Hash::make($data['nom'])
         ]);
 
-        $roleId = $this->roleRepository->getRoleByName($roleName);
+        $roleId = $this->roleRepository->getRoleIdByName($roleName);
 
         $this->userRepository->assignRole($user, $roleId);
 
