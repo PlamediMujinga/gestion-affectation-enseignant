@@ -5,5 +5,5 @@ namespace App\Contracts;
 interface RoleRepositoryInterface
 {
     public function create(array $data);
-    public function getRoleByName($roleName);
+    public function getRoleIdByName($roleName);
 }

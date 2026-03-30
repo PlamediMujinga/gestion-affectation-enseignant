@@ -29,7 +29,6 @@ return new class extends Migration
             $table->string('telephone')->nullable();
             $table->string('email')->nullable();
 
-            $table->foreignId('province_id')->constrained()->cascadeOnDelete();
             $table->foreignId('sous_proved_id')->constrained()->cascadeOnDelete();
 
             // $table->foreignId('directeur_id')->nullable()->constrained('enseignants')->nullOnDelete();

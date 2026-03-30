@@ -12,20 +12,19 @@ class Province extends Model
 
     protected $fillable = [
         'nom',
-        'code'
     ];
 
-    public function proveds()
+    public function proved()
     {
         return $this->hasMany(Proved::class);
     }
 
-    public function ecoles()
+    public function ecole()
     {
         return $this->hasMany(Ecole::class);
     }
 
-    public function enseignants()
+    public function enseignant()
     {
         return $this->hasMany(Enseignant::class);
     }

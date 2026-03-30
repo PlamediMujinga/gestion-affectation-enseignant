@@ -6,25 +6,28 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
+//Admin
+use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
+
 //Enseignant
-use App\Http\Controllers\Enseignant\DashboardController as EnseignantDahsboard;
+use App\Http\Controllers\Enseignant\DashboardController as EnseignantDashboard;
 use App\Http\Controllers\Enseignant\DemandeController as EnseignantDemande;
 
 //Ecole
-use App\Http\Controllers\Ecole\DashboardController as EcoleDahsboard;
+use App\Http\Controllers\Ecole\DashboardController as EcoleDashboard;
 use App\Http\Controllers\Ecole\DemandeController as EcoleDemande;
 
 //Sous Proved
-use App\Http\Controllers\SousProved\DashboardController as SousProvedDahsboard;
+use App\Http\Controllers\SousProved\DashboardController as SousProvedDashboard;
 use App\Http\Controllers\SousProved\AffectationController;
 use App\Http\Controllers\SousProved\DemandeController as SousProvedDemande;
 use App\Http\Controllers\SousProved\EcoleController as SousProvedEcole;
 
 //Sous Proved
-use App\Http\Controllers\Proved\DashboardController as ProvedDahsboard;
+use App\Http\Controllers\Proved\DashboardController as ProvedDashboard;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 //ROUTES PUBLIQUES
 
@@ -37,24 +40,39 @@ Route::get('/register', [RegisterController::class, 'showRegister']);
 Route::post('/register', [RegisterController::class, 'register']);
 
 //Deconnexion
-Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');
 
 //ROUTES PROTEGEES
 
 Route::middleware(['auth'])->group(function ()
 {
+
+    //Admin
+    Route::prefix('admin')
+        ->middleware(['role:admin'])
+        ->group(function () {
+            Route::get('/dashboard', [AdminDashboard::class, 'index']);
+
+        });
+
     //Enseignant
-    Route::prefix('enseignant')
-        ->middleware(['role::enseignant'])
+    Route::middleware(['role:enseignant'])
+        ->prefix('enseignant')
         ->group(function () {
             Route::get('/dashboard', [EnseignantDashboard::class, 'index']);
 
-            Route::post('/demandes', [EnseignantDemande::class, 'store'])->middleware('permission:create_demande');
+            Route::get('/profil', [EnseignantDashboard::class, 'profil']);
+
+            Route::get('/demandes/index', [EnseignantDemande::class, 'index'])->name('demandes.index');
+
+            Route::get('/demandes/create', [EnseignantDemande::class, 'create'])->name('demandes.create');
+
+            Route::post('/demandes/create', [EnseignantDemande::class, 'store'])->middleware('permission:create_demande')->name('demandes.store');
         });
 
     //Ecole
     Route::prefix('ecole')
-        ->middleware(['role::ecole'])
+        ->middleware(['role:ecole'])
         ->group(function () {
             Route::get('/dashboard', [EcoleDashboard::class, 'index']);
 
@@ -63,7 +81,7 @@ Route::middleware(['auth'])->group(function ()
 
     //Sous Proved
     Route::prefix('sous-proved')
-        ->middleware(['role::sous_proved'])
+        ->middleware(['role:sous_proved'])
         ->group(function () {
             Route::get('/dashboard', [SousProvedDashboard::class, 'index']);
 
@@ -76,7 +94,7 @@ Route::middleware(['auth'])->group(function ()
 
     //Proved
     Route::prefix('proved')
-        ->middleware(['role::proved'])
+        ->middleware(['role:proved'])
         ->group(function () {
             Route::get('/dashboard', [ProvedDashboard::class, 'index']);
 

@@ -16,6 +16,8 @@ return new class extends Migration
             $table->id();
             //Proved comme autorité provinciale du minstere (pas une personne)
 
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+
             //Nom - ex: Lukunga
             $table->string('nom');
             

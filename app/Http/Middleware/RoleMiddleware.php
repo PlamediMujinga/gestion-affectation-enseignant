@@ -6,27 +6,28 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class PermissionMiddlware
+class RoleMiddleware
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, ...$permissions): Response
+    public function handle(Request $request, Closure $next, ...$roles): Response
     {
-        $user = auth() ->user();
-
-        if (!$user) {
+        if (!auth()->check()) {
             return redirect('/login');
         }
 
-        foreach ($permissions as $permission) {
-            if ($user->hasPermission($permission)) {
+        $user = auth()->user();
+        
+        //Vérifier si l'utilisateur a un des roles autorisés
+        foreach ($roles as $role) {
+            if ($user->roles->contains('nom', $role)) {
                 return $next($request);
             }
         }
 
-        abort(403, 'Permission refusée');
+        abort(403, 'Accès refusé');
     }
 }

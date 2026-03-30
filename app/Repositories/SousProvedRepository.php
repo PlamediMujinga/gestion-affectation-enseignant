@@ -19,6 +19,6 @@ class SousProvedRepository implements SousProvedRepositoryInterface
 
     public function getEcoles($sousProvedId)
     {
-        return SousProved::findOrFail($sousProvedId)->ecoles;
+        return SousProved::findOrFail($sousProvedId)->ecole;
     }
 }

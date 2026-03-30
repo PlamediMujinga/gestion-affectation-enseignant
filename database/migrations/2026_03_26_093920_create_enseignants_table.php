@@ -42,7 +42,6 @@ return new class extends Migration
             $table->date('date_recrutement')->nullable();
 
             $table->foreignId('province_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('sous_proved_id')->nullable()->constrained()->nullOnDelete();
 
             $table->foreignId('ecole_id')->nullable()->constrained()->nullOnDelete();
 
