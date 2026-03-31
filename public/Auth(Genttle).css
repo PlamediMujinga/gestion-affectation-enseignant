@@ -1,0 +1,128 @@
+
+/* --- Base & Identité Visuelle --- */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0e5f4b, #1abc9c);
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+/* --- Cartes & Conteneurs (auth-card) --- */
+.auth-card {
+    border-radius: 15px;
+    padding: 25px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+.auth-card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- Formulaires & Inputs --- */
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+.form-control:focus {
+    border-color: #1abc9c;
+    box-shadow: 0 0 0 0.2rem rgba(26, 188, 156, 0.25);
+}
+
+/* --- Boutons Custom --- */
+.btn-custom {
+    background: #0e5f4b;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background: #147d64;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(14, 95, 75, 0.3);
+}
+
+/* --- Sidebar (Navigation Sous-Proved) --- */
+.sidebar {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    min-height: 100vh;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+}
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    padding: 12px 20px;
+    margin: 5px 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff !important;
+    font-weight: 600;
+}
+
+/* --- Tableaux de Gestion (Ecoles/Enseignants) --- */
+.table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #f8f9fa;
+    color: #0e5f4b;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(26, 188, 156, 0.05);
+}
+
+/* --- Badges de Statut (Mutations/PV) --- */
+.badge-pending {
+    background-color: #f1c40f;
+    color: #000;
+}
+
+.badge-validated {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+/* --- Section Statistiques --- */
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #0e5f4b;
+    margin: 0;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .sidebar {
+        min-height: auto;
+        padding-bottom: 20px;
+    }
+}
