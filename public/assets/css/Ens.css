@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Enseignant - Portail Éducatif</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> </head>
+<body>
+
+    <div class="sidebar">
+        <h3 class="mb-4 px-2">Mon Espace</h3>
+        <a href="#" class="active">📊 Tableau de bord</a>
+        <a href="#">📁 Mon Dossier</a>
+        <a href="#">📝 Prise de Fonction (PV)</a>
+        <a href="#">🔄 Demande de Mutation</a>
+        <a href="#">🔔 Notifications</a>
+        <hr style="border-color: rgba(255,255,255,0.1)">
+        <a href="#" style="margin-top: auto; color: #ff7675;">🚪 Déconnexion</a>
+    </div>
+
+    <div class="content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold">Bienvenue, M. Jean Mukendi</h2>
+                <p class="text-muted">Matricule : 1.284.930-X</p>
+            </div>
+            <span class="badge-status">En poste : EP 1 GOMBE</span>
+        </div>
+
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="stat-card green">
+                    <h5>Ancienneté</h5>
+                    <h3>8 Ans</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card blue">
+                    <h5>Grade Acad.</h5>
+                    <h3>Principal</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card orange">
+                    <h5>Dossiers PV</h5>
+                    <h3>Validé</h3>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card purple">
+                    <h5>Messages</h5>
+                    <h3>3 Nouveaux</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-7 mb-4">
+                <div class="custom-card">
+                    <h5 class="mb-4">Soumettre mon PV de prise de fonction</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Référence de l'acte d'affectation</label>
+                            <input type="text" class="form-control" placeholder="Ex: MINEPST/2024/001">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted">Télécharger le PV signé (PDF/JPG)</label>
+                            <input type="file" class="form-control">
+                        </div>
+                        <button type="submit" class="btn text-white w-100" style="background: #0e5f4b;">Envoyer au Sous-Proved</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5 mb-4">
+                <div class="custom-card h-100">
+                    <h5 class="mb-4">Historique des mouvements</h5>
+                    <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                        <div>
+                            <small class="text-muted">Janvier 2024</small>
+                            <p class="mb-0 fw-bold">Mutation interne</p>
+                        </div>
+                        <span class="badge-status">Terminé</span>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <small class="text-muted">Mars 2026</small>
+                            <p class="mb-0 fw-bold">Affectation initiale</p>
+                        </div>
+                        <span class="badge-status">Archivé</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
