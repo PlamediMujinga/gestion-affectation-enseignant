@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Enseignant\DashboardController as EnseignantDashboard;
 use App\Http\Controllers\Enseignant\DemandeController as EnseignantDemande;
 
+
 //Ecole
 use App\Http\Controllers\Ecole\DashboardController as EcoleDashboard;
 use App\Http\Controllers\Ecole\DemandeController as EcoleDemande;
@@ -23,8 +24,9 @@ use App\Http\Controllers\SousProved\AffectationController;
 use App\Http\Controllers\SousProved\DemandeController as SousProvedDemande;
 use App\Http\Controllers\SousProved\EcoleController as SousProvedEcole;
 
-//Sous Proved
-use App\Http\Controllers\Proved\DashboardController as ProvedDashboard;
+//Proved
+use App\Http\Controllers\Proved\ProvedController as ProvedDashboard;
+
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -97,6 +99,14 @@ Route::middleware(['auth'])->group(function ()
         ->middleware(['role:proved'])
         ->group(function () {
             Route::get('/dashboard', [ProvedDashboard::class, 'index']);
+            Route::get('/ecoles/index', [ProvedDashboard::class, 'ecoleProved']);
+            Route::get('/enseignants/index', [ProvedDashboard::class, 'enseignantProved']);
+            Route::get('/affectations/index', [ProvedDashboard::class, 'affectationProved']);
+            Route::get('/divisions/index', [ProvedDashboard::class, 'divisionProved']);
+            Route::get('/statistiques/index', [ProvedDashboard::class, 'statistiqueProved']);
+            Route::get('/mutations/index', [ProvedDashboard::class, 'mutationProved']);
+            Route::get('/notifications/index', [ProvedDashboard::class, 'notificationProved']);
+
 
             /*** 
             Route::get('/ecoles', [ProvedEcole::class, 'index'])->middleware('permission:view_ecole');

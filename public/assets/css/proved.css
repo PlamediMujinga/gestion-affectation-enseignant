@@ -1,0 +1,126 @@
+body{
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f6f8;
+}
+
+
+.sidebar{
+    background: #2c3e50;
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    background: linear-gradient(180deg, #0f5132, #198754);
+    color: white;
+    padding: 20px;
+   
+}
+
+.sidebar a{
+    display: block;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    color: #cfe9e3;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.sidebar a:hover{
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+/* CONTENT */
+.content{
+    margin-left: 260px;
+    padding: 20px;
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+    .sidebar a{
+        display: none;
+    }
+
+    .content{
+        margin-left: 0;
+    }
+}
+
+/* CARD */
+.stat-card{
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+}
+
+.stat-card{
+    flex: 1;
+    padding: 20px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+}
+
+.green { background: #28a745; }
+.blue { background: #007bff; }
+.orange { background: #fd7e14; }
+.purple { background: #6f42c1; }   
+
+/* CHART */
+.custom-card {
+    display: flex;
+    gap: 20px;
+}
+
+.chart-box {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+  
+}
+
+.badge-status{
+    background: #d1f2eb;
+    color: #1abc9c;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+/* TABLE */
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.card-box {
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+}
+
+.bg-purple {
+    background-color: #6f42c1;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.btn-primary {
+    background: #2563eb;
+    border: none;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.btn-success {
+    background: #1f7a4c;
+    border: none;
+}

@@ -32,7 +32,7 @@ class SousProved extends Model
 
     public function ecole()
     {
-        return $this->hasMany(Ecoles::class);
+        return $this->hasMany(Ecole::class);
     }
 
     public function enseignant()
