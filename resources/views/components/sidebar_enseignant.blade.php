@@ -1,6 +1,6 @@
 <!-- SIDEBAR DESKTOP -->
 <div class="sidebar d-none d-md-block">
-    <h4 class="mb-4"> Enseignant</h4>
+    <h4 class="mb-4 px-2"><i class="fas fa-user fa-lg"></i> Enseignant</h4>
 
     <a href="/enseignant/dashboard"> <i class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
     <a href="/enseignant/demandes/index"> <i class="fas fa-file-import me-2"></i>Demandes</a>

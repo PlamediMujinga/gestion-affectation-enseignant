@@ -78,7 +78,7 @@ class DatabaseSeeder extends Seeder
                         'email' => strtolower(str_replace(' ', '', $sousProved->nom)) . "@edu.cd",
                     ]);
 
-                    $userSProved->roles()->attach(Role::where('nom', 'proved')->first());
+                    $userSProved->roles()->attach(Role::where('nom', 'sous_proved')->first());
                     $sousProved->update(['user_id' => $userSProved->id]);
                     
                     //Création ecole

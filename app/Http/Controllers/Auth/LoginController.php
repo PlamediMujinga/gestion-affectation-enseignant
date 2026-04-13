@@ -48,7 +48,7 @@ class LoginController extends Controller
         if($user->hasRole('ecole')) 
             return redirect('/ecole/dashboard');
         if($user->hasRole('sous_proved')) 
-            return redirect('/sous-proved/dashboard');
+            return redirect('/sousProved/dashboard');
         if($user->hasRole('proved')) 
             return redirect('/proved/dashboard');
         if($user->hasRole('admin')) 

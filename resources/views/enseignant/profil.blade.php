@@ -3,9 +3,9 @@
 
 @section('content')
 
-<h3> Mon Profil</h3>
+<h3><strong> Mon Profil</strong></h3>
 
-<div class="custom-card mt-4">
+<div class="custom-card mt-4" style="width:75%;">
     <h4> Identité</h4>
     <hr>
     <p><strong>Nom :</strong> {{ $enseignant->nom }}</p>

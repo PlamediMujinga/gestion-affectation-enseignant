@@ -1,0 +1,80 @@
+body{
+    font-family: 'Inter', sans-serif;
+    background: #e5e9f0;
+}
+
+.sidebar{
+    background: #2c3e50;
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    background: #853c01;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar a{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    color: #cfe9e3;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.sidebar a:hover{
+    background: #b65608;
+    color: white;
+}
+
+/* CONTENT */
+.content{
+    margin-left: 260px;
+    padding: 20px;
+}
+
+.content .navbar {
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-top: -20px;
+}
+
+/* MOBILE */
+@media (max-width: 768px){
+    .sidebar a{
+        display: none;
+    }
+
+    .content{
+        margin-left: 0;
+    }
+}
+
+/* CARD */
+.stat-card{
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+}
+
+.green { background: #0baa9d;}
+.orange { background: #d18007;}
+.blue { background: #1651cf;}
+.red { background: #ad2828;}
+
+.custom-card{
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.badge-status{
+    background: #f2e0d1;
+    color: #853c01;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+}

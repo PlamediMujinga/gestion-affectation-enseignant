@@ -33,7 +33,7 @@ return new class extends Migration
 
             // $table->foreignId('directeur_id')->nullable()->constrained('enseignants')->nullOnDelete();
 
-            $table->integer('capacite')->nullable();
+            $table->integer('poste_vacant')->nullable();
             $table->integer('nombre_eleves')->nullable();
             
             $table->timestamps();

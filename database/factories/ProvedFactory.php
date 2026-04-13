@@ -34,7 +34,7 @@ class ProvedFactory extends Factory
             'nom' => 'Proved ' . $nom,
             'code' => strtoupper($this->faker->unique()->bothify('PROV-####')),
 
-            'province_id' => $province->id,
+            'province_id' => \App\Models\Province::factory(),
 
             'telephone' => $phone,
             'email' => "proved" . $emailName . "@edu.cd",

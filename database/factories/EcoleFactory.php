@@ -19,10 +19,7 @@ class EcoleFactory extends Factory
      */
     public function definition(): array
     {
-        //Récuperation d'un sous proved
-        $sousProved = SousProved::inRandomOrder()->first();
-        //Récuperation de la proved du sous proved
-        $proved = $sousProved->proved;
+        
 
         $nom = $this->faker->unique()->company . '  School';
         $emailName = Str::slug($nom, '.');
@@ -44,8 +41,11 @@ class EcoleFactory extends Factory
             'telephone' => $phone,
             'email' => $emailName . "@edu.cd",
 
-            'sous_proved_id' => $sousProved->id,
+            'sous_proved_id' => \App\Models\SousProved::factory(),
             'directeur_id' => null,
+            
+            'poste_vacant' => $this->faker->numberBetween(0,5),
+            'nombre_eleves' => $this->faker->numberBetween(70,400),
             
         ];
     }

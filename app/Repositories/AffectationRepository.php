@@ -21,4 +21,9 @@ class AffectationRepository implements AffectationRepositoryInterface
     {
         return Affectation::where('enseignant_id', $enseignantId)->get();
     }
+
+    public function getByEcole($ecoleId)
+    {
+        return Affectation::where('ecole_id', $ecoleId)->get();
+    }
 }
