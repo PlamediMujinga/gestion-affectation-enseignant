@@ -20,7 +20,7 @@ class Ecole extends Model
         'telephone',
         'email',
         'sous_proved_id',
-        'capacite',
+        'poste_vacant',
         'nombre_eleves',
         'directeur_id'
     ];

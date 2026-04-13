@@ -10,18 +10,13 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 
 //Enseignant
-use App\Http\Controllers\Enseignant\DashboardController as EnseignantDashboard;
-use App\Http\Controllers\Enseignant\DemandeController as EnseignantDemande;
+use App\Http\Controllers\Enseignant\EnseignantController;
 
 //Ecole
-use App\Http\Controllers\Ecole\DashboardController as EcoleDashboard;
-use App\Http\Controllers\Ecole\DemandeController as EcoleDemande;
+use App\Http\Controllers\Ecole\EcoleController;
 
 //Sous Proved
-use App\Http\Controllers\SousProved\DashboardController as SousProvedDashboard;
-use App\Http\Controllers\SousProved\AffectationController;
-use App\Http\Controllers\SousProved\DemandeController as SousProvedDemande;
-use App\Http\Controllers\SousProved\EcoleController as SousProvedEcole;
+use App\Http\Controllers\SousProved\SousProvedController;
 
 //Sous Proved
 use App\Http\Controllers\Proved\DashboardController as ProvedDashboard;
@@ -59,37 +54,51 @@ Route::middleware(['auth'])->group(function ()
     Route::middleware(['role:enseignant'])
         ->prefix('enseignant')
         ->group(function () {
-            Route::get('/dashboard', [EnseignantDashboard::class, 'index']);
+            Route::get('/dashboard', [EnseignantController::class, 'index']);
 
-            Route::get('/profil', [EnseignantDashboard::class, 'profil']);
+            Route::get('/profil', [EnseignantController::class, 'profil']);
 
-            Route::get('/demandes/index', [EnseignantDemande::class, 'index'])->name('demandes.index');
+            Route::get('/demandes/index', [EnseignantController::class, 'historicDemande'])->name('demandes.index');
 
-            Route::get('/demandes/create', [EnseignantDemande::class, 'create'])->name('demandes.create');
+            Route::get('/demandes/create', [EnseignantController::class, 'createDemande'])->name('demandes.create');
 
-            Route::post('/demandes/create', [EnseignantDemande::class, 'store'])->middleware('permission:create_demande')->name('demandes.store');
+            Route::get('/affectations/index', [EnseignantController::class, 'historicAffectation'])->name('affectations.enseignant.index');
+
+            Route::post('/demandes/create', [EnseignantController::class, 'storeDemande'])->middleware('permission:create_demande')->name('demandes.store');
         });
 
     //Ecole
     Route::prefix('ecole')
         ->middleware(['role:ecole'])
         ->group(function () {
-            Route::get('/dashboard', [EcoleDashboard::class, 'index']);
+            Route::get('/dashboard', [EcoleController::class, 'index']);
 
-            Route::post('/demandes', [EcoleDemande::class, 'store'])->middleware('permission:create_demande');
+            Route::get('/profil', [EcoleController::class, 'profil']);
+
+            Route::get('/demandes/index', [EcoleController::class, 'historicDemande'])->name('demandes.ecole.index');
+
+            Route::get('/demandes/create', [EcoleController::class, 'createDemande'])->name('demandes.ecole.create');
+
+            Route::get('/enseignants/index', [EcoleController::class, 'listeEnseignant'])->name('enseignant.index');
+
+            Route::get('/enseignants/poste', [EcoleController::class, 'posteVacant'])->name('enseignant.poste');
+
+            Route::get('/affectations/index', [EcoleController::class, 'historicAffectation'])->name('affectations.ecole.index');
+
+            Route::post('/demandes/create', [EcoleController::class, 'storeDemande'])->middleware('permission:create_demande')->name('demandes.ecole.store');
         });
 
     //Sous Proved
-    Route::prefix('sous-proved')
+    Route::prefix('sousProved')
         ->middleware(['role:sous_proved'])
         ->group(function () {
-            Route::get('/dashboard', [SousProvedDashboard::class, 'index']);
+            Route::get('/dashboard', [SousProvedController::class, 'index'])->name('sousProved.dashboard');
 
-            Route::get('/ecoles', [SousProvedEcole::class, 'index'])->middleware('permission:view_ecole');
+            Route::get('/ecoles', [SousProvedController::class, 'index'])->middleware('permission:view_ecole');
 
-            Route::get('/demandes', [SousProvedDemande::class, 'index'])->middleware('permission:view_demande');
+            Route::get('/demandes', [SousProvedController::class, 'index'])->middleware('permission:view_demande');
 
-            Route::post('/affectations', [AffectionController::class, 'store'])->middleware('permission:affect_teacher');
+            Route::post('/affectations', [SousProvedController::class, 'store'])->middleware('permission:affect_teacher');
         });
 
     //Proved

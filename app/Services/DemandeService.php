@@ -55,16 +55,19 @@ class DemandeService
     //Récupérer demandes en attente
     public function getDemandeById($id, $type)
     {
-        if($type === 'enseignant'){
-            return Demande::where('emetteur_id', $id)
-                            ->orderBy('created_at', 'desc')
-                            ->get();
-        }
-        if($type === 'ecole'){
-            return Demande::where('emetteur_id', $id)
-                            ->orderBy('created_at', 'desc')
-                            ->get();
-        }
-        
+        return $this->demandeRepository->getById($id, $type);
+
+    }
+
+    public function getCountDemande($id, $type)
+    {
+        return $this->demandeRepository->getCount($id, $type);
+
+    }
+
+    public function getRecentDemande($id, $type, $nb)
+    {
+        return $this->demandeRepository->getLast($id, $type, $nb);
+
     }
 }

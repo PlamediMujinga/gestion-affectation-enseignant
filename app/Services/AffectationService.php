@@ -52,6 +52,16 @@ class AffectationService
         return $affectation;
     }
 
+    public function getById($id, $type)
+    {
+        if($type == 'enseignant'){
+            return $this->affectationRepository->getByEnseignant($id);
+        }
+        else{
+            return $this->affectationRepository->getByEcole($id);
+        }   
+    }
+    
     //Prendre toutes les affectations
     public function getAll()
     {

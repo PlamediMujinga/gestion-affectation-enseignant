@@ -89,6 +89,7 @@ class AuthService
                 if(!$ecole)
                 {
                     DB::rollBack();
+
                     $this->auditService->log(
                     'fraud_attempt',
                     'Faux code ecole: '
@@ -102,6 +103,7 @@ class AuthService
                 }
                 
                 $user = $this->userRepository->create([
+                    'nom' => $data['nom'],
                     'email' => $data['email'],
                     'password' => Hash::make($data['password'])
                 ]);

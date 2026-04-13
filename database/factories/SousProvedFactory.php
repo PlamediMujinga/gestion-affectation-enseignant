@@ -35,7 +35,7 @@ class SousProvedFactory extends Factory
             'nom' => 'Division ' . $nom,
             'code' => strtoupper($this->faker->unique()->bothify('DIV-####')),
 
-            'proved_id' =>$proved->id,
+            'proved_id' => \App\Models\Proved::factory(),
 
             'telephone' => $phone,
             'email' => "division" . $emailName . "@edu.cd",

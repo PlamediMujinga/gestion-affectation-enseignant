@@ -2,9 +2,9 @@
 
 @section('content')
 
-<h3 class="mb-3">Dashboard / {{ auth()->user()->nom }}</h3>
+<h3 class="mb-3 py-1"><strong>Bienvenue, {{ auth()->user()->nom }}</strong></h3>
 
-<div class="row g-3">
+<div class="row g-3 py-3">
     <div class="col-12 col-sm-6 col-md-3">
         <div class="stat-card green">
             <h3>0</h3>
@@ -36,14 +36,9 @@
 </div>
 
 <div class="custom-card mt-4">
-    <h6>Notifications</h6>
+    <h6><strong>Dernières Demandes/Affectations</strong></h6>
     <hr>
-
-    <p>Nouvelle affectation reçue</p>
-    <p>Nouvelle affectation reçue</p>
-    <p>Nouvelle affectation reçue</p>
-    <p>Nouvelle affectation reçue</p>
-    <p>Nouvelle affectation reçue</p>
+    <p>Aucune affectation reçue</p>
 </div>
 
 @endsection

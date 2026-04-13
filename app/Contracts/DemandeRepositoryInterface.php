@@ -8,4 +8,7 @@ interface DemandeRepositoryInterface
     public function findById($id);
     public function getPending();
     public function updateStatus($id, $status);
+    public function getById($id, $type);
+    public function getCount($id, $type);
+    public function getLast($id, $type, $nb);
 }

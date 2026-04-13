@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="h4">Historiques de Demandes</h2>
+        <h2 class="h4"><strong>Historiques des Demandes</strong></h2>
         <a href="{{ route('demandes.create')}}" class="btn btn-primary shadow-sm">
             <i class="fas fa-plus-circle me-2"></i>Nouvelle demande</a>
     </div>

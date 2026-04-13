@@ -52,7 +52,7 @@ class EnseignantFactory extends Factory
             'niveau_etude' => $this->faker->randomElement(['Diplome_etat','Graduat','Licence']),
             'specialite' => $this->faker->randomElement(['Mathématiques','Français','Histoire','Civisme']),
 
-            'province_id' => $province->id,
+            'province_id' => \App\Models\Province::factory(),
             'ecole_id' => null,
             
         ];

@@ -28,4 +28,27 @@ class DemandeRepository implements DemandeRepositoryInterface
         $demande->update(['statut' => $status]);
         return $demande;
     }
+
+    public function getById($id, $type)
+    {
+        return Demande::where('emetteur_id', $id)
+                        ->where('emetteur_type', $type)
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+    }
+
+    public function getCount($id, $type)
+    {
+        return Demande::where('emetteur_id', $id)
+                        ->where('emetteur_type', $type)
+                        ->count();
+    }
+
+    public function getLast($id, $type, $nb)
+    {
+        return Demande::where('emetteur_id', $id)
+                        ->where('emetteur_type', $type)
+                        ->take($nb)
+                        ->get();
+    }
 }
