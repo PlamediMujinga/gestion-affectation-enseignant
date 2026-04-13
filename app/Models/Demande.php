@@ -19,7 +19,7 @@ class Demande extends Model
         'nombre_enseignants',
         'traite_par',
         'commentaire_reponse',
-        //'statut'
+        'statut'
     ];
 
     public function emetteur()
