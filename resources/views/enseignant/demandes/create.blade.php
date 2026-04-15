@@ -21,8 +21,6 @@
                                 <option value="" selected disabled>Choisir un type...</option>
                                 <option value="demande_transfert">Mutation/Transfert</option>
                                 <option value="demande_affectation">Affectation</option>
-                                <option value="manque_enseignant">Manque d'enseignant</option>
-                                <option value="Surplus_enseignant">Surplus d'enseignant(Transfert d'enseignant)</option>
                             </select>
                             @error('type_demande')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -33,9 +31,7 @@
                             <label for="emetteur_type" class="form-label fw-bold">Entité demandeur</label>
                             <select class="form-select" name="emetteur_type" 
                                     id="emetteur_type" required>
-                                <option value="" selected disabled>Choisir un type...</option>
                                 <option value="enseignant">Enseignant</option>
-                                <option value="ecole">Ecole</option>
                             </select>
                         </div>
 
